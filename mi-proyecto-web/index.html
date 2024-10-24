@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Bolsa de Trabajo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Encuesta de Egresados - Actualización de datos y seguimiento</h2>
+
+    <form id="jobForm" action="/submit-form" method="POST">
+        <!-- Sección 1 -->
+        <div class="section active" id="section1">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="Matricula">Matricula:</label>
+            <input type="text" id="Matricula" name="Matricula" required>
+
+            <label for="Edad">Edad:</label>
+            <input type="number" id="Edad" name="Edad" required>
+
+            <label for="Sexo">Sexo:</label>
+            <input type="text" id="Sexo" name="Sexo" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="Curp">Curp: (consulta tu CURP en <a href="https://www.gob.mx/curp/">https://www.gob.mx/curp/</a>)</label>
+            <input type="text" id="Curp" name="Curp" required>
+
+            <button type="button" id="next1">Siguiente</button>
+        </div>
+
+        <!-- Sección 2 -->
+        <div class="section" id="section2">
+            <label for="programa">Programa Educativo de Egreso:</label>
+            <input type="text" id="programa" name="programa" required>
+
+            <label for="Año">Año de Egreso:</label>
+            <input type="number" id="Año" name="Año" required>
+
+            <label for="Lugar">Lugar de Residencia:</label>
+            <input type="text" id="Lugar" name="Lugar" required>
+
+            <label for="trabajo">¿Actualmente trabajas?</label><br>
+            <label>
+                <input type="radio" id="si" name="trabajo" value="si" required> Sí
+            </label><br>
+            <label>
+                <input type="radio" id="no" name="trabajo" value="no" required> No
+            </label>
+
+            <button type="button" id="prev2">Anterior</button>
+            <button type="button" id="next2">Siguiente</button>
+        </div>
+
+        <!-- Sección 3 -->
+        <div class="section" id="section3">
+            <!-- Añadir más campos relevantes aquí -->
+            <label for="empresa">Empresa donde trabajas:</label>
+            <input type="text" id="empresa" name="empresa">
+
+            <label for="Ocupación">Ocupación:</label>
+            <select id="Ocupación" name="Ocupación" required>
+                <option value="Operario">Operario</option>
+                <option value="Técnico Especializado">Técnico Especializado</option>
+                <option value="Técnico General">Técnico General</option>
+                <option value="Administrativo">Administrativo</option>
+                <option value="Director">Director</option>
+                <option value="Negocio propio">Negocio propio</option>
+            </select>
+
+            <button type="button" id="prev3">Anterior</button>
+            <button type="submit">Enviar Solicitud</button>
+        </div>
+    </form>
+
+    <script>
+        // JavaScript para cambiar entre secciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            let currentSection = 0;
+
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.classList.toggle('active', i === index);
+                });
+            }
+
+            // Botones de navegación
+            document.getElementById('next1').addEventListener('click', function() {
+                currentSection++;
+                showSection(currentSection);
+            });
+
+            document.getElementById('next2').addEventListener('click', function() {
+                currentSection++;
+                showSection(currentSection);
+            });
+
+            document.getElementById('prev2').addEventListener('click', function() {
+                currentSection--;
+                showSection(currentSection);
+            });
+
+            document.getElementById('prev3').addEventListener('click', function() {
+                currentSection--;
+                showSection(currentSection);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,13 @@
         .section {
             display: none;
         }
+
         .section.active {
             display: block;
         }
     </style>
 </head>
+
 <body>
 
     <h2>Encuesta de Egresados - Actualización de datos y seguimiento</h2>
@@ -39,7 +42,8 @@
             <label for="telefono">Teléfono:</label>
             <input type="tel" id="telefono" name="telefono" required>
 
-            <label for="Curp">Curp: (consulta tu CURP en <a href="https://www.gob.mx/curp/">https://www.gob.mx/curp/</a>)</label>
+            <label for="Curp">Curp: (consulta tu CURP en <a href=" https://www.gob.mx/curp/ "> https://www.gob.mx/curp/
+                </a>)</label>
             <input type="text" id="Curp" name="Curp" required>
 
             <button type="button" id="next1">Siguiente</button>
@@ -51,7 +55,17 @@
             <input type="text" id="programa" name="programa" required>
 
             <label for="Año">Año de Egreso:</label>
-            <input type="number" id="Año" name="Año" required>
+            
+             <select id="Año" name="Año" required>
+                <option value="">Seleccione el año</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+              </select>
+
+            
+
 
             <label for="Lugar">Lugar de Residencia:</label>
             <input type="text" id="Lugar" name="Lugar" required>
@@ -63,6 +77,8 @@
             <label>
                 <input type="radio" id="no" name="trabajo" value="no" required> No
             </label>
+            <br>
+            <br>
 
             <button type="button" id="prev2">Anterior</button>
             <button type="button" id="next2">Siguiente</button>
@@ -82,6 +98,7 @@
                 <option value="Administrativo">Administrativo</option>
                 <option value="Director">Director</option>
                 <option value="Negocio propio">Negocio propio</option>
+                <option value="Negocio propio">Otro</option>
             </select>
 
             <button type="button" id="prev3">Anterior</button>
@@ -91,7 +108,7 @@
 
     <script>
         // JavaScript para cambiar entre secciones
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.section');
             let currentSection = 0;
 
@@ -102,22 +119,22 @@
             }
 
             // Botones de navegación
-            document.getElementById('next1').addEventListener('click', function() {
+            document.getElementById('next1').addEventListener('click', function () {
                 currentSection++;
                 showSection(currentSection);
             });
 
-            document.getElementById('next2').addEventListener('click', function() {
+            document.getElementById('next2').addEventListener('click', function () {
                 currentSection++;
                 showSection(currentSection);
             });
 
-            document.getElementById('prev2').addEventListener('click', function() {
+            document.getElementById('prev2').addEventListener('click', function () {
                 currentSection--;
                 showSection(currentSection);
             });
 
-            document.getElementById('prev3').addEventListener('click', function() {
+            document.getElementById('prev3').addEventListener('click', function () {
                 currentSection--;
                 showSection(currentSection);
             });
@@ -125,4 +142,5 @@
     </script>
 
 </body>
+
 </html>
